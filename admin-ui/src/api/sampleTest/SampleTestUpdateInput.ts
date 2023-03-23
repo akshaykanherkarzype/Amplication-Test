@@ -1,1 +1,3 @@
-export type SampleTestUpdateInput = {};
+export type SampleTestUpdateInput = {
+  guestName?: string | null;
+};

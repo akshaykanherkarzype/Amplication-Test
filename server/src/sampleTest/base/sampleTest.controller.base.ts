@@ -53,6 +53,7 @@ export class SampleTestControllerBase {
       data: data,
       select: {
         createdAt: true,
+        guestName: true,
         id: true,
         updatedAt: true,
       },
@@ -77,6 +78,7 @@ export class SampleTestControllerBase {
       ...args,
       select: {
         createdAt: true,
+        guestName: true,
         id: true,
         updatedAt: true,
       },
@@ -102,6 +104,7 @@ export class SampleTestControllerBase {
       where: params,
       select: {
         createdAt: true,
+        guestName: true,
         id: true,
         updatedAt: true,
       },
@@ -136,6 +139,7 @@ export class SampleTestControllerBase {
         data: data,
         select: {
           createdAt: true,
+          guestName: true,
           id: true,
           updatedAt: true,
         },
@@ -169,6 +173,7 @@ export class SampleTestControllerBase {
         where: params,
         select: {
           createdAt: true,
+          guestName: true,
           id: true,
           updatedAt: true,
         },

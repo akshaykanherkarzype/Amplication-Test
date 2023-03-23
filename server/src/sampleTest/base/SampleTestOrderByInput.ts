@@ -34,6 +34,15 @@ class SampleTestOrderByInput {
   @Field(() => SortOrder, {
     nullable: true,
   })
+  guestName?: SortOrder;
+
+  @ApiProperty({
+    required: false,
+    enum: ["asc", "desc"],
+  })
+  @Field(() => SortOrder, {
+    nullable: true,
+  })
   id?: SortOrder;
 
   @ApiProperty({

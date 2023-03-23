@@ -1,1 +1,3 @@
-export type SampleTestCreateInput = {};
+export type SampleTestCreateInput = {
+  guestName?: string | null;
+};

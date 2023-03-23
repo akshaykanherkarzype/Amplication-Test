@@ -13,6 +13,7 @@ export const SampleTestList = (props: ListProps): React.ReactElement => {
     >
       <Datagrid rowClick="show">
         <DateField source="createdAt" label="Created At" />
+        <TextField label="guestName" source="guestName" />
         <TextField label="ID" source="id" />
         <DateField source="updatedAt" label="Updated At" />
       </Datagrid>

@@ -20,6 +20,7 @@ model User {
 
 model TestOne {
   createdAt DateTime @default(now())
+  guestName String?
   id        String   @id @default(cuid())
   updatedAt DateTime @updatedAt
   userName  String?
