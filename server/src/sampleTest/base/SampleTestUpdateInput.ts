@@ -9,5 +9,22 @@ https://docs.amplication.com/how-to/custom-code
 
 ------------------------------------------------------------------------------
   */
-class SampleTestUpdateInput {}
+import { InputType, Field } from "@nestjs/graphql";
+import { ApiProperty } from "@nestjs/swagger";
+import { IsString, IsOptional } from "class-validator";
+
+@InputType()
+class SampleTestUpdateInput {
+  @ApiProperty({
+    required: false,
+    type: String,
+  })
+  @IsString()
+  @IsOptional()
+  @Field(() => String, {
+    nullable: true,
+  })
+  guestName?: string | null;
+}
+
 export { SampleTestUpdateInput as SampleTestUpdateInput };

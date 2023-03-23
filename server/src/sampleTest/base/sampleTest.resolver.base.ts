@@ -18,6 +18,9 @@ import * as gqlACGuard from "../../auth/gqlAC.guard";
 import { GqlDefaultAuthGuard } from "../../auth/gqlDefaultAuth.guard";
 import * as common from "@nestjs/common";
 import { AclFilterResponseInterceptor } from "../../interceptors/aclFilterResponse.interceptor";
+import { AclValidateRequestInterceptor } from "../../interceptors/aclValidateRequest.interceptor";
+import { CreateSampleTestArgs } from "./CreateSampleTestArgs";
+import { UpdateSampleTestArgs } from "./UpdateSampleTestArgs";
 import { DeleteSampleTestArgs } from "./DeleteSampleTestArgs";
 import { SampleTestFindManyArgs } from "./SampleTestFindManyArgs";
 import { SampleTestFindUniqueArgs } from "./SampleTestFindUniqueArgs";
@@ -78,6 +81,47 @@ export class SampleTestResolverBase {
       return null;
     }
     return result;
+  }
+
+  @common.UseInterceptors(AclValidateRequestInterceptor)
+  @graphql.Mutation(() => SampleTest)
+  @nestAccessControl.UseRoles({
+    resource: "SampleTest",
+    action: "create",
+    possession: "any",
+  })
+  async createSampleTest(
+    @graphql.Args() args: CreateSampleTestArgs
+  ): Promise<SampleTest> {
+    return await this.service.create({
+      ...args,
+      data: args.data,
+    });
+  }
+
+  @common.UseInterceptors(AclValidateRequestInterceptor)
+  @graphql.Mutation(() => SampleTest)
+  @nestAccessControl.UseRoles({
+    resource: "SampleTest",
+    action: "update",
+    possession: "any",
+  })
+  async updateSampleTest(
+    @graphql.Args() args: UpdateSampleTestArgs
+  ): Promise<SampleTest | null> {
+    try {
+      return await this.service.update({
+        ...args,
+        data: args.data,
+      });
+    } catch (error) {
+      if (isRecordNotFoundError(error)) {
+        throw new apollo.ApolloError(
+          `No resource was found for ${JSON.stringify(args.where)}`
+        );
+      }
+      throw error;
+    }
   }
 
   @graphql.Mutation(() => SampleTest)
