@@ -31,31 +31,31 @@
   },
   {
     "role": "user",
-    "resource": "SampleTest",
+    "resource": "TestOne",
     "action": "read:own",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "SampleTest",
+    "resource": "TestOne",
     "action": "create:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "SampleTest",
+    "resource": "TestOne",
     "action": "update:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "SampleTest",
+    "resource": "TestOne",
     "action": "delete:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "SampleTest",
+    "resource": "TestOne",
     "action": "read:any",
     "attributes": "*"
   }

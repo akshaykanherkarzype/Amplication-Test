@@ -18,8 +18,9 @@ model User {
   username  String   @unique
 }
 
-model SampleTest {
+model TestOne {
   createdAt DateTime @default(now())
   id        String   @id @default(cuid())
   updatedAt DateTime @updatedAt
+  userName  String?
 }
